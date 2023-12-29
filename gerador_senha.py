@@ -10,7 +10,7 @@ import string
 letras_minusculas = string.ascii_lowercase
 letras_maiuscula = string.ascii_uppercase
 numeros = [str(n) for n in range(0,10)]
-especiais = ['!','@','#','$','%','&','*']
+especiais = ['!','@','#','$','%','&']
 
 # Função que ira gerar a senha
 def gerar_senha(
@@ -24,7 +24,7 @@ def gerar_senha(
     senha += ("".join(sample(letras_min,3)))
     senha += ("".join(sample(letras_mais,3)))
     senha += ("".join(sample(nums,3)))
-    senha += ("".join(sample(char_spe,3)))
+    senha += ("".join(sample(char_spe,4)))
 
     senha = list(senha)
 
@@ -52,7 +52,7 @@ def gerar(root):
     label.clipboard_clear()
     label.clipboard_append(senha)
 
-    messagebox.showinfo(f'Senha Copiada',f'A senha {senha} foi copiada para a área de transferência!')
+    messagebox.showinfo(f'Senha Copiada',f'Sua senha foi copiada para a área de transferência!')
 
 # Função para ajustar a janela principal conforme o conteudo que estiver nela
 def ajustar_janela_ao_conteudo(root):
@@ -77,16 +77,15 @@ janela = tk.Tk()
 janela.title('Gerador de Senha Forte')
 
 # Fontes personalizadas
-fonte_titulo = Font(family="Segoe UI", size=15, weight="bold")
-fonte_senha = Font(family="Segoe UI", size=23, weight="bold")
-fonte_botao = Font(family="Segoe UI", size=14, weight="bold")
+fonte_titulo = Font(family="Segoe UI", size=13, weight="normal")
+fonte_senha = Font(family="Segoe UI", size=20, weight="bold")
+fonte_botao = Font(family="Segoe UI", size=13, weight="normal")
 
 # Label do titulo do programa
 tk.Label(janela,text='Gerador de Senha Forte!', font=fonte_titulo).pack(pady=10)
 
-
 # Label onde ficará a senha gerada
-label_senha = tk.Label(janela, text='', font=fonte_senha, cursor="arrow")
+label_senha = tk.Label(janela, text='', font=fonte_senha)
 label_senha.pack(pady=10)
 
 # Botão para chamar a função que gera a senha e atualiza a label
