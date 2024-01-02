@@ -28,6 +28,7 @@ def gerar_senha(
 
     senha = list(senha)
 
+    # Método da biblioteca random que embaralha uma lista
     embaralhar(senha)
 
     str_senha = "".join(senha)
@@ -37,10 +38,6 @@ def gerar_senha(
 # Função que irá atualizar a label onde irá aparecer a senha
 def atualizar_label(label, info):
     label.config(text=info)
-
-    # Configurar evento de clique para permitir seleção e cópia
-    label.bind("<Button-1>", lambda event: label.clipboard_clear())
-    label.bind("<ButtonRelease-1>", lambda event: label.clipboard_append(info))
 
 # Função que ira chamar a função de gerar a senha e depois de atualizar a label
 def gerar(root):
@@ -52,6 +49,7 @@ def gerar(root):
     label.clipboard_clear()
     label.clipboard_append(senha)
 
+    # Mensagem para informar o usuario que a senha foi copiada para area de transferencia
     messagebox.showinfo(f'Senha Copiada',f'Sua senha foi copiada para a área de transferência!')
 
 # Função para ajustar a janela principal conforme o conteudo que estiver nela
